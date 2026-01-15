@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Приложение в разработке",
-  description: "Мы работаем над чем-то особенным. Скоро здесь будет что-то удивительное!",
+  title: "Модуль",
+  description: "Диджитал команда",
 };
 
 export default function RootLayout({

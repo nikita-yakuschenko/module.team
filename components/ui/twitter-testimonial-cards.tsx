@@ -139,7 +139,7 @@ export default function Testimonials({ cards }: TestimonialsProps) {
   const getCardClassName = (index: number, baseClassName: string) => {
     // When hovering/active on back card (0), push middle (1) and front (2) down
     // When hovering/active on middle card (1), push front (2) down
-    // Уменьшаем смещения на мобильных устройствах
+    // Уменьшаем смещения на всех мобильных устройствах
     const focusedIndex = hoveredIndex ?? activeIndex;
     
     if (focusedIndex === 0 && index === 1) {

@@ -77,47 +77,47 @@ function TestimonialCard({
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       className={cn(
-        "relative flex h-auto min-h-[140px] sm:min-h-[180px] w-[260px] sm:w-[380px] -skew-y-[8deg] select-none flex-col rounded-2xl border border-border bg-card/90 backdrop-blur-sm px-3 sm:px-4 py-3 sm:py-4 transition-all duration-500 hover:border-border/80 hover:bg-card cursor-pointer",
+        "relative flex h-auto min-h-[120px] sm:min-h-[140px] md:min-h-[160px] lg:min-h-[180px] w-[240px] sm:w-[280px] md:w-[320px] lg:w-[380px] -skew-y-[5deg] sm:-skew-y-[6deg] md:-skew-y-[8deg] select-none flex-col rounded-lg sm:rounded-xl md:rounded-2xl border border-border bg-card/90 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 transition-all duration-500 hover:border-border/80 hover:bg-card active:scale-[0.98] cursor-pointer touch-manipulation",
         "dark:after:absolute dark:after:-right-1 dark:after:top-[-5%] dark:after:h-[110%] dark:after:w-[20rem] dark:after:bg-linear-to-l dark:after:from-background dark:after:to-transparent dark:after:content-[''] dark:after:pointer-events-none",
         isActive && "ring-2 ring-primary/50",
         className
       )}
     >
       {/* Header */}
-      <div className="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3">
-        <div className="size-9 sm:size-12 rounded-full bg-transparent flex items-center justify-center overflow-hidden shrink-0 border border-gray-300/30">
+      <div className="flex items-start gap-1.5 sm:gap-2 md:gap-3 mb-1.5 sm:mb-2 md:mb-3">
+        <div className="size-7 sm:size-8 md:size-10 lg:size-12 rounded-full bg-transparent flex items-center justify-center overflow-hidden shrink-0 border border-gray-300/30">
           {avatar ? (
             <img src={avatar} alt={username} className="w-full h-full object-cover" />
           ) : (
-            <span className="text-lg sm:text-2xl">🐸</span>
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl">🐸</span>
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-1">
-            <span className="font-bold text-foreground truncate text-xs sm:text-base">{username}</span>
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            <span className="font-bold text-foreground truncate text-[10px] sm:text-xs md:text-sm lg:text-base">{username}</span>
             {verified && <VerifiedBadge />}
           </div>
-          <span className="text-muted-foreground text-[10px] sm:text-sm">{handle}</span>
+          <span className="text-muted-foreground text-[9px] sm:text-[10px] md:text-xs lg:text-sm truncate block">{handle}</span>
         </div>
       </div>
 
       {/* Content */}
-      <p className="text-foreground text-xs sm:text-[15px] leading-relaxed mb-2 sm:mb-3 line-clamp-3 sm:line-clamp-4">
+      <p className="text-foreground text-[11px] sm:text-xs md:text-sm lg:text-[15px] leading-relaxed mb-1.5 sm:mb-2 md:mb-3 line-clamp-2 sm:line-clamp-3 md:line-clamp-4">
         {content}
       </p>
 
       {/* Footer */}
-      <div className="flex items-center justify-between text-muted-foreground text-[10px] sm:text-sm mt-auto">
-        <span>{date}</span>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1">
-            <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="flex items-center justify-between text-muted-foreground text-[9px] sm:text-[10px] md:text-xs lg:text-sm mt-auto">
+        <span className="truncate">{date}</span>
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 shrink-0">
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            <svg className="size-3 sm:size-3.5 md:size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
             <span>{likes}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            <svg className="size-3 sm:size-3.5 md:size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
             </svg>
             <span>{retweets}</span>
@@ -139,16 +139,17 @@ export default function Testimonials({ cards }: TestimonialsProps) {
   const getCardClassName = (index: number, baseClassName: string) => {
     // When hovering/active on back card (0), push middle (1) and front (2) down
     // When hovering/active on middle card (1), push front (2) down
+    // Уменьшаем смещения на мобильных устройствах
     const focusedIndex = hoveredIndex ?? activeIndex;
     
     if (focusedIndex === 0 && index === 1) {
-      return baseClassName + " !translate-y-20 sm:!translate-y-32 !translate-x-14 sm:!translate-x-24";
+      return baseClassName + " !translate-y-6 sm:!translate-y-10 md:!translate-y-16 lg:!translate-y-24 xl:!translate-y-32 !translate-x-4 sm:!translate-x-6 md:!translate-x-10 lg:!translate-x-16 xl:!translate-x-24";
     }
     if (focusedIndex === 0 && index === 2) {
-      return baseClassName + " !translate-y-28 sm:!translate-y-44 !translate-x-24 sm:!translate-x-40";
+      return baseClassName + " !translate-y-8 sm:!translate-y-12 md:!translate-y-20 lg:!translate-y-32 xl:!translate-y-44 !translate-x-6 sm:!translate-x-8 md:!translate-x-14 lg:!translate-x-24 xl:!translate-x-40";
     }
     if (focusedIndex === 1 && index === 2) {
-      return baseClassName + " !translate-y-24 sm:!translate-y-40 !translate-x-24 sm:!translate-x-40";
+      return baseClassName + " !translate-y-8 sm:!translate-y-12 md:!translate-y-18 lg:!translate-y-28 xl:!translate-y-40 !translate-x-6 sm:!translate-x-8 md:!translate-x-14 lg:!translate-x-24 xl:!translate-x-40";
     }
     return baseClassName;
   };
@@ -206,8 +207,9 @@ export default function Testimonials({ cards }: TestimonialsProps) {
 
   // Компенсируем горизонтальное смещение карточек для центрирования стопки
   // Смещаем влево, так как стопка была правее оси
+  // На мобильных не смещаем, чтобы не выходить за края
   return (
-    <div className="grid [grid-template-areas:'stack'] place-items-center items-center justify-items-center opacity-100 animate-in fade-in-0 duration-700 -translate-x-8 sm:-translate-x-16">
+    <div className="grid [grid-template-areas:'stack'] place-items-center items-center justify-items-center opacity-100 animate-in fade-in-0 duration-700 translate-x-0 sm:-translate-x-3 md:-translate-x-6 lg:-translate-x-10 xl:-translate-x-14 overflow-visible">
       {displayCards.map((cardProps, index) => (
         <TestimonialCard
           key={index}

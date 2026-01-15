@@ -44,13 +44,13 @@ export function AnimatedText({ items, interval = 3000, className }: AnimatedText
   return (
     <span 
       className={cn("inline-flex items-baseline relative overflow-hidden", className)}
-      style={{ minWidth: `${maxLength}ch` }}
+      style={{ minWidth: `${maxLength}ch`, display: 'inline-flex' }}
     >
       {/* Текущее слово - уходит наверх */}
       <span
         key={`current-${currentIndex}`}
         className={cn(
-          "inline-block transition-all duration-700 ease-in-out text-left w-full absolute pb-[10px]",
+          "inline-block transition-all duration-700 ease-in-out text-left w-full absolute",
           itemColors[items[currentIndex]] || "text-primary",
           isAnimating ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
         )}
@@ -61,7 +61,7 @@ export function AnimatedText({ items, interval = 3000, className }: AnimatedText
       <span
         key={`next-${nextIndex}`}
         className={cn(
-          "inline-block transition-all duration-700 ease-in-out text-left w-full pb-[10px]",
+          "inline-block transition-all duration-700 ease-in-out text-left w-full",
           itemColors[items[nextIndex]] || "text-primary",
           isAnimating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
         )}

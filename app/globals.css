@@ -77,6 +77,21 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-inter), sans-serif;
+    /* Улучшаем рендеринг текста на мобильных */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Улучшаем touch события на мобильных */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Предотвращаем горизонтальный скролл */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 }
 

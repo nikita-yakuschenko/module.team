@@ -9,8 +9,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Приложение в разработке",
+  title: "module",
   description: "Мы работаем над чем-то особенным. Скоро здесь будет что-то удивительное!",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({

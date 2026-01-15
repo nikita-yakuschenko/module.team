@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Модуль",
-  description: "Мы работаем над чем-то особенным. Скоро здесь будет что-то удивительное!",
+  description: "Диджитал команда",
   viewport: {
     width: "device-width",
     initialScale: 1,

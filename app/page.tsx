@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <main className="h-screen w-full flex flex-col items-center justify-center bg-linear-to-br from-background via-background to-muted/20 px-3 sm:px-4 py-2 sm:py-4 md:py-0 overflow-hidden relative">
       {/* Блок коллаборации - фиксирован от верхнего края */}
-      <div className="absolute top-2 sm:top-4 md:top-[100px] left-0 right-0 flex justify-center items-center z-20 px-2 w-full">
+      <div className="absolute top-16 sm:top-20 md:top-[100px] left-0 right-0 flex justify-center items-center z-20 px-2 w-full">
         <CollaborationBadge />
       </div>
       

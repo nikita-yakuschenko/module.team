@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Module.Team
 
-## Getting Started
+Лендинг-страница для команды Модуль с информацией о коллаборации с Авангард Строй.
 
-First, run the development server:
+## О проекте
+
+Сайт представляет семейство программных решений Модуль (Пульс, Поток, Визор, План), разрабатываемых для команды Авангард Строй.
+
+## Технологии
+
+- **Next.js 16.1.2** - React фреймворк с App Router
+- **React 19.2.3** - UI библиотека
+- **TypeScript** - типизация
+- **Tailwind CSS 4** - стилизация
+- **shadcn/ui** - UI компоненты
+
+## Разработка
+
+### Установка зависимостей
+
+```bash
+npm install
+```
+
+### Запуск dev сервера
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Сборка для production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Деплой
 
-To learn more about Next.js, take a look at the following resources:
+Проект настроен для деплоя через **Dokploy** с использованием Docker.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Подробные инструкции:
+- [Деплой через Dokploy](./README.DOKPLOY.md)
+- [Деплой через Docker](./README.DOCKER.md)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Структура проекта
 
-## Deploy on Vercel
+```
+.
+├── app/                    # Next.js App Router
+│   ├── page.tsx           # Главная страница
+│   ├── layout.tsx         # Корневой layout
+│   └── globals.css        # Глобальные стили
+├── components/            # React компоненты
+│   └── ui/               # UI компоненты
+│       ├── animated-text.tsx
+│       ├── collaboration-badge.tsx
+│       └── twitter-testimonial-cards.tsx
+├── public/               # Статические файлы
+│   ├── avatars/         # Аватары компаний
+│   └── images/          # Изображения
+├── Dockerfile           # Docker конфигурация
+└── docker-compose.yml   # Docker Compose
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Лицензия
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© module.team 2025-2026

@@ -16,7 +16,7 @@ export function CollaborationBadge({ className }: CollaborationBadgeProps) {
         className
       )}
     >
-      {/* Первое изображение - Модуль */}
+      {/* Первое изображение - Модуль  */}
       <a 
         href="https://module.team" 
         target="_blank" 

@@ -18,7 +18,7 @@ export default function Home() {
       date: "15 янв, 2026",
       verified: true,
       likes: 89,
-      retweets: 12,
+      retweets: 13,
     },
     {
       className:
@@ -30,7 +30,7 @@ export default function Home() {
         date: "15 янв, 2026",
         verified: true,
         likes: 109,
-        retweets: 12,
+        retweets: 22,
         tweetUrl: "https://avgst.ru",
     },
     {
